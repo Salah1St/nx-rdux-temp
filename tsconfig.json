@@ -18,6 +18,9 @@
       }
     ],
     "paths": {
+      "@element/*": ["./src/app/components/elements/*"],
+      "@widget/*": ["./src/app/components/widgets/*"],
+      "@layout/*": ["./src/app/components/layout/*"],
       "@/*": ["./src/*"]
     }
   },
