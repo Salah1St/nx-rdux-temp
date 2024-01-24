@@ -1,11 +1,17 @@
-import React from "react";
+import DashboardContextProvider from '@/context/DashboardContext';
+import Dashboard from '@widget/dashboard/Dashboard';
+import React from 'react';
 
 function DashboardLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactElement;
 }>) {
-  return <div>{children}</div>;
+  return (
+    <DashboardContextProvider>
+      <Dashboard>{children}</Dashboard>
+    </DashboardContextProvider>
+  );
 }
 
 export default DashboardLayout;
