@@ -1,8 +1,8 @@
 'use client';
 import { useDashboard } from '@/context/DashboardContext';
-import DashboardHeader from './DashboardHeader';
-import DashboardLeftSideBar from './DashboardLeftSideBar';
-import DashboardRightSideBar from './DashboardRightSideBar';
+import DashboardHeader from './header/DashboardHeader';
+import DashboardLeftSideBar from './left-side-bar/DashboardLeftSideBar';
+import DashboardRightSideBar from './right-side-bar/DashboardRightSideBar';
 import { ReactNode } from 'react';
 
 interface DashboardProps {
