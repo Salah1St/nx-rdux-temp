@@ -18,8 +18,13 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  width: 100dvw;
+  height: 100dvh;
+  user-select: none;
+  font-family: Mitr, "Courier New", Courier, monospace;
 }
 
 @layer utilities {
@@ -28,14 +33,28 @@ body {
   }
 }
 @layer base {
-  /* @font-face {
-    font-family: Inter;
+  @font-face {
+    font-family: "LINE Seed Sans TH";
+    font-style: 200;
+    src: url("/fonts/LINESeedSansTH_W_Th.woff");
+  }
+  @font-face {
+    font-family: "LINE Seed Sans TH";
     font-style: normal;
-    font-weight: 100 800;
-    src: url("/fonts/Inter-Variable.ttf");
-  } */
+    src: url("/fonts/LINESeedSansTH_W_Rg.woff");
+  }
+  @font-face {
+    font-family: "LINE Seed Sans TH";
+    font-style: 600;
+    src: url("/fonts/LINESeedSansTH_W_Bd.woff");
+  }
+  @font-face {
+    font-family: "LINE Seed Sans TH";
+    font-style: 800;
+    src: url("/fonts/LINESeedSansTH_W_XBd.woff");
+  }
   h1 {
-    @apply text-2xl;
+    @apply text-2xl font;
   }
   h2 {
     @apply text-xl;
@@ -44,19 +63,7 @@ body {
     @apply text-lg;
   }
   a {
-    @apply text-blue-600 underline;
-  }
-  button {
-    @apply w-full h-10  border border-primary-400 rounded-md flex justify-center items-center shadow-md;
-  }
-  button:hover {
-    @apply border-primary-600;
-  }
-  button:active {
-    @apply bg-primary-100 shadow-inner;
-  }
-  input[type="text"] {
-    @apply w-full h-10 bg-slate-200 border border-slate-200 rounded-md px-4 py-2;
+    @apply text-link underline;
   }
 }
 .animate-delay-2000 {
