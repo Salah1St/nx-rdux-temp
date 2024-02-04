@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 import { login } from "@/redux/slice/authSlice";
 import InputText from "@element/InputText";
 import ModalComponents from "@element/ModalComponents";
+import PrimaryButton from "@element/primary/PrimaryButton";
+import { useRouter } from "next/navigation";
 
 interface FormValues {
   username: string;
@@ -17,7 +19,7 @@ interface FormValues {
 }
 function FormLogin({ className }: { className?: string }) {
   const dispatch = useDispatch();
-
+  const route = useRouter();
   const [show, setShow] = useState(false);
 
   const schema = yup.object().shape({
@@ -45,10 +47,16 @@ function FormLogin({ className }: { className?: string }) {
         <InputText id="username" title={"username"} placeHolder={"username"} {...hookForm} />
         <InputText id="password" type="password" title={"password"} placeHolder={"password"} {...hookForm} />
         <div className="flex justify-end ">
-          <ModalComponents show={show} setShow={setShow} button={fotgetBtn}></ModalComponents>
+          <ModalComponents show={show} setShow={setShow} button={fotgetBtn} title={<h1 className="text-link">forget password</h1>} />
         </div>
       </div>
-      <button type="button">{"Next"}</button>
+      <PrimaryButton
+        onClick={() => {
+          route.push("/dashboard");
+        }}
+      >
+        {"Next"}
+      </PrimaryButton>
     </form>
   );
 }
