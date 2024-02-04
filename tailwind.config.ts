@@ -90,8 +90,7 @@ const config: Config = {
         link: "#0185ff",
       },
       fontFamily: {
-        Roboto: ["Roboto"],
-        Line: ["LINE Seed Sans TH"],
+        Line: ["LINE_Seed_Sans_TH"],
       },
       dropShadow: {
         primary: "10px 10px 20px rgba(58,170,166,0.15)",

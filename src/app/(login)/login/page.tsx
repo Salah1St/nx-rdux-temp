@@ -4,7 +4,7 @@ import React from "react";
 
 function page() {
   return (
-    <div className="w-screen h-screen  flex">
+    <div className="w-screen h-screen  flex ">
       <LoginBackground />
       <LoginForm />
     </div>
