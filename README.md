@@ -1,7 +1,7 @@
 This is a [Carbon Credit Bureau Thailand](https://nextjs.org/) project
 
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://github.com/CCBThailand/ccb-api/blob/develop/CCBThailand.png?raw=true" width="200" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://github.com/CCBThailand/ccb-web-agent/blob/develop/CCBThailand.png?raw=true" width="200" alt="Nest Logo" /></a>
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
