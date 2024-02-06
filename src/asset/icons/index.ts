@@ -23,5 +23,6 @@ const icons = {
   error: require("./error.svg"),
   hamburger: require("./hamburger.svg"),
   user: require("./user.svg"),
+  arrowRise: require("./ArrowRise.svg"),
 };
 export default icons;
