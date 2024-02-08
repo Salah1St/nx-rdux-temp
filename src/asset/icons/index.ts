@@ -23,5 +23,14 @@ const icons = {
   error: require("./error.svg"),
   hamburger: require("./hamburger.svg"),
   user: require("./user.svg"),
+  // CCBT
+  sidebar: require("./sidebar-icon.svg"),
+  bell: require("./bell.svg"),
+  downVector: require("./down-vector.svg"),
+  rightVector: require("./right-vector.svg"),
+  helpCircle: require("./help-circle.svg"),
+  bug: require("./bug.svg"),
+  avatar: require("./avatar.svg"),
+  broadcast: require("./broadcast.svg"),
 };
 export default icons;

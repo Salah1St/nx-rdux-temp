@@ -93,17 +93,40 @@ const config: Config = {
         Line: ["LINE_Seed_Sans_TH"],
       },
       dropShadow: {
-        primary: "10px 10px 20px rgba(58,170,166,0.15)",
+        primary: "4px 4px 8px rgba(38,63,42,0.85)",
+        text: "1px 1px 1px rgba(0,0,0,0.85)",
+        color: "1px 1px 1px rgba(38,63,42,0.85)",
+      },
+      boxShadow: {
+        "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.5)",
       },
       animation: {
         "spin-slow": "spin 2s linear infinite",
         "fade-slow": "wiggle 2s ease-in-out  1 ",
         "fade-in": "scaleup 3s ease-in-out  1 ",
+        "slide-left": "moveLeft 0.5s ease  1 forwards",
+        "slide-left-re": "moveLeftBack 0.5s ease  1 forwards",
+        "slide-right": "moveRight 0.5s ease  1 forwards",
+        "slide-right-re": "moveRightBack 0.5s ease  1 forwards",
       },
       keyframes: {
         wiggle: {
           "0%": { width: "100%" },
           "100%": { width: "50%" },
+        },
+        moveLeft: {
+          to: { transform: "translateX(-300px)", width: "0px", opacity: "0" },
+        },
+        moveLeftBack: {
+          from: { transform: "translateX(-300px)", width: "0px", opacity: "0" },
+          to: { transform: "translateX(0px)", width: "300px", opacity: "1" },
+        },
+        moveRight: {
+          to: { transform: "translateX(300px)", width: "0px", opacity: "0" },
+        },
+        moveRightBack: {
+          from: { transform: "translateX(300px)", width: "0px", opacity: "0" },
+          to: { transform: "translateX(0px)", width: "300px", opacity: "1" },
         },
         scaleup: {
           "0%": { transform: "scale(0.5)", opacity: "0" },
