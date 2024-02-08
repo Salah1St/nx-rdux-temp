@@ -26,7 +26,8 @@
   },
   "enum": {
     "month": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-    "year": "0"
+    "year": "0",
+    "select": "valueEn"
   },
   "error": {
     "NOT_FOUND": "bank account not match with employee",
