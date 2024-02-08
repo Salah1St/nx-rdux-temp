@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-import icons from "../../asset/icons";
 import Image from "next/image";
+import icons from "@/asset/icons";
 
 interface props {
   content: string;
