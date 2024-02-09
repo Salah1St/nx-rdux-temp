@@ -115,18 +115,18 @@ const config: Config = {
           "100%": { width: "50%" },
         },
         moveLeft: {
-          to: { transform: "translateX(-300px)", width: "0px", opacity: "0" },
+          to: { transform: "translateX(-280px)", width: "0px", opacity: "0" },
         },
         moveLeftBack: {
-          from: { transform: "translateX(-300px)", width: "0px", opacity: "0" },
-          to: { transform: "translateX(0px)", width: "300px", opacity: "1" },
+          from: { transform: "translateX(-280px)", width: "0px", opacity: "0" },
+          to: { transform: "translateX(0px)", width: "280px", opacity: "1" },
         },
         moveRight: {
-          to: { transform: "translateX(300px)", width: "0px", opacity: "0" },
+          to: { transform: "translateX(280px)", width: "0px", opacity: "0" },
         },
         moveRightBack: {
-          from: { transform: "translateX(300px)", width: "0px", opacity: "0" },
-          to: { transform: "translateX(0px)", width: "300px", opacity: "1" },
+          from: { transform: "translateX(280px)", width: "0px", opacity: "0" },
+          to: { transform: "translateX(0px)", width: "280px", opacity: "1" },
         },
         scaleup: {
           "0%": { transform: "scale(0.5)", opacity: "0" },

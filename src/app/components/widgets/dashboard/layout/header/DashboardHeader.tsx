@@ -10,7 +10,9 @@ export default function DashboardHeader({ handleToggleLeftSideBar, handleToggleR
   return (
     <div className="w-full h-[68px] border-b-[1px] border-opacity-10 py-5 px-7 flex items-center justify-between">
       <div className="flex gap-2">
-        <Image onClick={handleToggleLeftSideBar} src={icons.sidebar} alt="" />
+        <div className={`p-2 border border-transparent rounded-full flex justify-center items-center hover:border-primary-brand-400 cursor-pointer`}>
+          <Image onClick={handleToggleLeftSideBar} src={icons.sidebar} alt="" />
+        </div>
         <div className="flex">
           <div className="p-2 opacity-40">Dashboard</div>
           <div className="py-2">/</div>

@@ -23,7 +23,7 @@ body {
   width: 100dvw;
   height: 100dvh;
   user-select: none;
-  font-family: Mitr, "Courier New", Courier, monospace;
+  font-family: LINE_Seed_Sans_TH, Mitr, "Courier New", Courier, monospace;
 }
 
 @layer utilities {
@@ -32,16 +32,6 @@ body {
   }
 }
 @layer base {
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  div {
-    @apply font-mono;
-  }
   @font-face {
     font-family: "LINE_Seed_Sans_TH";
     font-weight: 100;
