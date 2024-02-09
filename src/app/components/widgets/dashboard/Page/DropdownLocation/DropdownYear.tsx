@@ -14,7 +14,7 @@ function DropdownYear({ onChange }: props) {
     onChange(e);
   };
   return (
-    <div className=" h-full flex items-center p-2">
+    <div className=" h-full flex items-center ">
       <select defaultValue={now} className="w-fit bg-transparent  border-[1px] border-slate-300 rounded-md  " onChange={(e) => handleOnchange(e)}>
         {Option.map((i) => (
           <option key={i} value={i}>
