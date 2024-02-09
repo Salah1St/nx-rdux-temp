@@ -50,7 +50,10 @@ function Selection({ onChange, placeHolder, data, type = "src" }: props) {
         </div>
       </div>
       {show && data && (
-        <div ref={div1Ref} className="absolute top-10 bg-slate-50  flex flex-col  max-h-[300px] overflow-y-scroll backdrop-blur-2xl border border-primary-brand-600  rounded-lg">
+        <div
+          ref={div1Ref}
+          className="absolute top-10 bg-[rgba(96,145,100,0.1)] shadow-md shadow-primary-brand-900 flex flex-col  max-h-[300px] overflow-y-scroll backdrop-blur-md  border border-primary-brand-400  rounded-lg "
+        >
           {data.map((i, d) => (
             <div className="whitespace-nowrap text-white  drop-shadow-text  hover:shadow-md  px-2 cursor-pointer" key={d} onClick={(e) => handleOnClick(d)}>
               {i[t("enum.select") as keyof OptionItem]}
