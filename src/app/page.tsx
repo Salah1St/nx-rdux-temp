@@ -19,7 +19,7 @@ export default function Home() {
   }, [router]);
   https: return (
     <div className="w-screen h-screen  flex">
-      <img className="w-1/2 animate-fade-slow  object-left object-cover flex-1" src={images.backgroundLanding.default.src} />
+      <Image alt="" className="w-1/2 animate-fade-slow  object-left object-cover flex-1" src={images.backgroundLanding.default.src} />
       <div className=" h-full bg-slate-50 flex-1 flex justify-center items-center">
         <div className=" animate-fade-in   border border-slate-200 shadow-md w-[400px] h-[400px] rounded-lg flex flex-col gap-4 justify-center p-8">
           <FormLogin className="" />

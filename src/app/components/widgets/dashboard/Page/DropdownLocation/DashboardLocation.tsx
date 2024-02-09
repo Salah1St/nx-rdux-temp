@@ -13,7 +13,7 @@ function DashboardLocation() {
     console.log(value);
   };
   return (
-    <div className="w-full h-[60px]  flex justify-between items-center">
+    <div className="w-full h-fit  flex justify-between items-center">
       <DropdownAddress onChange={(e) => handleAddress(e)} />
       <DropdownYear onChange={(e) => handleOnchange(e)} />
     </div>

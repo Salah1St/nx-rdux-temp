@@ -32,5 +32,6 @@ const icons = {
   bug: require("./bug.svg"),
   avatar: require("./avatar.svg"),
   broadcast: require("./broadcast.svg"),
+  arrowRise: require("./ArrowRise.svg"),
 };
 export default icons;
