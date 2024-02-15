@@ -22,7 +22,7 @@ export default function DoughnutChart({ data, text }: Props) {
         data: data?.map((item) => item.amount),
         backgroundColor: ["#27462C", "#56915D", "#B9D4B9"],
         hoverOffset: 4,
-        offset: -20,
+        offset: -12,
         rotation: 30,
         borderWidth: 4,
         borderRadius: { innerStart: 100, outerStart: 100 },

@@ -1,7 +1,10 @@
 "use client";
 
+import { useAppDispatch } from "@/hooks/useRedux";
+import { setDesktop, setMobile, setTablet } from "@/redux/slice/mediaSlice";
 import Spinner from "@element/Spinner";
-import React, { Dispatch, FC, ReactNode, createContext, useContext, useState } from "react";
+import React, { Dispatch, FC, ReactNode, createContext, useContext, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { ToastContainer, ToastContainerProps, toast } from "react-toastify";
 interface NotificationContext {
   notify: (props: NotifyProp) => void;
@@ -24,6 +27,7 @@ const defaultToastOpts: ToastContainerProps = {
 };
 const NotificationContext = createContext<NotificationContext | null>(null);
 const NotificationContextProvider: FC<NotificationProviderProps> = ({ children }) => {
+  const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const notify = ({ message, type }: NotifyProp) => {
     switch (type) {
@@ -45,6 +49,23 @@ const NotificationContextProvider: FC<NotificationProviderProps> = ({ children }
     }
   };
 
+  useEffect(() => {
+    const location = window.location.pathname;
+
+    const handleResize = () => {
+      if (window.innerWidth > 1078) {
+        dispatch(setDesktop(window.innerWidth));
+      } else if (window.innerWidth < 640) {
+        dispatch(setMobile(window.innerWidth));
+      } else {
+        dispatch(setTablet(window.innerWidth));
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <NotificationContext.Provider value={{ notify, setLoading }}>
       <ToastContainer {...defaultToastOpts} />
