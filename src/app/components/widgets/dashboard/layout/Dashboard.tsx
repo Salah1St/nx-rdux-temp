@@ -14,17 +14,13 @@ export default function Dashboard({ children }: DashboardProps) {
   const { toggleLeftSideBar, handleToggleLeftSideBar, toggleRightSideBar, handleToggleRightSideBar } = useDashboard();
 
   return (
-    <div className="w-screen h-screen flex overflow-hidden">
-      {/* <div className={`transform transition-transform ease-in-out ${toggleLeftSideBar ? "translate-x-0" : "-translate-x-full"}`}>
-      </div> */}
+    <div className="w-screen h-screen flex overflow-hidden ">
       <DashboardLeftSideBar show={toggleLeftSideBar} />
       <div className="flex-grow">
         <DashboardHeader handleToggleLeftSideBar={handleToggleLeftSideBar} handleToggleRightSideBar={handleToggleRightSideBar} />
         {children}
       </div>
-      {/* <div className={`transform transition-transform ease-in-out ${toggleRightSideBar ? "translate-x-0" : "translate-x-full"}`}> */}
       <DashboardRightSideBar show={toggleRightSideBar} />
-      {/* </div> */}
     </div>
   );
 }

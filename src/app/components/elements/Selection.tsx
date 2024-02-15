@@ -42,7 +42,7 @@ function Selection({ onChange, placeHolder, data, type = "src" }: props) {
   };
 
   return (
-    <div ref={ref} className=" relative w-[${width}px]  px-4" onClick={(e) => setShow((p) => !p)}>
+    <div ref={ref} className=" relative w-[${width}px]  " onClick={(e) => setShow((p) => !p)}>
       <div className={` flex justify-between gap-4  items-center ${data ? "hover:drop-shadow-primary cursor-pointer " : " text-slate-200"}  `}>
         {value}
         <div className="p-1 aspect-square flex justify-center items-center rounded-full ">

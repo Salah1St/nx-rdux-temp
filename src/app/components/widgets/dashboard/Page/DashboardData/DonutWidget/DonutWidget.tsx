@@ -1,10 +1,12 @@
 import DoughnutChart from "@element/DoughnutChart";
 import ScopeItem from "./ScopeItem";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
-export default function CarbonEmissionSummary() {
+export default function DonutWidget() {
   const data = [
     { type: "Direct", amount: 386 },
-    { type: "Indirect", amount: 455 },
+    { type: "Indirect", amount: 458 },
     { type: "Indirect", amount: 288 },
   ];
 
@@ -16,7 +18,7 @@ export default function CarbonEmissionSummary() {
   }, 0);
 
   return (
-    <div className="w-1/2 bg-primary-gray-50 rounded-2xl grid grid-cols-1  p-6">
+    <div className="w-full bg-primary-gray-50 rounded-2xl grid grid-cols-1  p-6">
       <div className="w-full font-bold text-sm">Carbon Emission Summary</div>
       <div className=" grid grid-cols-2">
         <div className="w-full col-span-1">
