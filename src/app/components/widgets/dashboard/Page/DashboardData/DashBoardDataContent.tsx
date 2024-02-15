@@ -8,6 +8,7 @@ import { useAppSelector } from "@/hooks/useRedux";
 import { useDashboard } from "@/context/DashboardContext";
 import { Skeleton } from "@/components/ui/skeleton";
 import Block from "@element/Block";
+import LineChartWidget from "./LineChartWidget/LineChartWidget";
 
 function DashBoardDataContent() {
   return (
@@ -18,7 +19,7 @@ function DashBoardDataContent() {
         <BarChartWidget />
       </Block>
       <Block ratio="70%">
-        <DonutWidget />
+        <LineChartWidget />
         <BarChartWidget />
       </Block>
     </div>
