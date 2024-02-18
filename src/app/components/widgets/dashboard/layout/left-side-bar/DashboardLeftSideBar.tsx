@@ -4,6 +4,7 @@ import Dashboards from "./Dashboards";
 import OrganisationTeam from "./OrganisationTeam";
 import Supports from "./Supports";
 import UserInfo from "./UserInfo";
+import Logo from "./Logo";
 
 interface props {
   show: boolean;
@@ -11,17 +12,11 @@ interface props {
 export default function DashboardLeftSideBar({ show }: props) {
   return (
     <div className={` w-[280px] bg-slate-50 h-screen ${show ? " animate-slide-left-re " : "animate-slide-left "} `}>
-      <div className="p-4 h-full grid grid-cols-1  gap-8 overflow-scroll">
-        <div className="flex flex-col items-center gap-3 ">
-          <div className="w-[51px] h-[51px] rounded-2xl bg-[#4E5BA6]"></div>
-          <div className="font-bold">CCB Thailand</div>
-          <UserInfo />
-        </div>
-
+      <div className="p-4 h-full flex flex-col gap-8 overflow-scroll">
+        <Logo />
+        <UserInfo />
         <Dashboards />
-
         <OrganisationTeam />
-
         <Supports />
       </div>
     </div>

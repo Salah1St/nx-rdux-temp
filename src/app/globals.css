@@ -72,7 +72,7 @@ body {
     @apply text-lg;
   }
   a {
-    @apply text-link underline;
+    @apply text-base;
   }
 }
 .animate-delay-2000 {

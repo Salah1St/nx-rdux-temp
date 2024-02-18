@@ -24,6 +24,7 @@ const icons = {
   hamburger: require("./hamburger.svg"),
   user: require("./user.svg"),
   // CCBT
+  ccblogo: require("./ccb-icon.svg"),
   sidebar: require("./sidebar-icon.svg"),
   bell: require("./bell.svg"),
   downVector: require("./down-vector.svg"),
