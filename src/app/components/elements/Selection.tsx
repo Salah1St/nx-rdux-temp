@@ -42,7 +42,7 @@ function Selection({ onChange, placeHolder, data, type = "src" }: props) {
   };
 
   return (
-    <div ref={ref} className=" relative w-[${width}px]  " onClick={(e) => setShow((p) => !p)}>
+    <div ref={ref} className={` relative w-[${width}px]  `} onClick={(e) => setShow((p) => !p)}>
       <div className={` flex justify-between gap-4  items-center ${data ? "hover:drop-shadow-primary cursor-pointer " : " text-slate-200"}  `}>
         {value}
         <div className="p-1 aspect-square flex justify-center items-center rounded-full ">
@@ -52,7 +52,7 @@ function Selection({ onChange, placeHolder, data, type = "src" }: props) {
       {show && data && (
         <div
           ref={div1Ref}
-          className="absolute top-10 bg-[rgba(96,145,100,0.1)] shadow-md shadow-primary-brand-900 flex flex-col  max-h-[300px] overflow-y-scroll backdrop-blur-md  border border-primary-brand-400  rounded-lg "
+          className="absolute z-[60] top-10 bg-[rgba(96,145,100,0.1)] shadow-md shadow-primary-brand-900 flex flex-col  max-h-[300px] overflow-y-scroll backdrop-blur-md  border border-primary-brand-400  rounded-lg "
         >
           {data.map((i, d) => (
             <div className="whitespace-nowrap text-white  drop-shadow-text  hover:shadow-md  px-2 cursor-pointer" key={d} onClick={(e) => handleOnClick(d)}>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 
 import DashboardLocation from "@widget/dashboard/Page/DropdownLocation/DashboardLocation";
 import DashBoardDataContent from "./DashboardData/DashBoardDataContent";
@@ -10,7 +10,7 @@ function DashboardContent() {
   const { dashboardRef } = useDashboard();
 
   return (
-    <div ref={dashboardRef} className="w-full h-full py-4 px-8 ">
+    <div ref={dashboardRef} className="relative w-full h-full   p-8 ">
       <DashboardLocation />
       <DashBoardDataContent />
     </div>

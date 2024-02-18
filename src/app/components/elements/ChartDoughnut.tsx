@@ -1,31 +1,27 @@
 "use client";
+import { ChartdataSrcs } from "@/model/interface";
+import { primaryColor } from "@widget/dashboard/Page/DashboardData/constant/color";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, ChartData, ChartOptions, Plugin, DatasetChartOptions, ElementChartOptions } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
-// interface Props {
-//   data: ChartData<"doughnut", number[] | undefined, unknown>;
-//   text?: string;
-//   options?: ChartOptions<"doughnut">;
-// }
-
-interface Props {
-  data: { type: string; amount: number }[];
-  text?: string;
+interface props {
+  rawData: ChartdataSrcs[];
 }
-
-export default function DoughnutChart({ data, text }: Props) {
+export default function ChartDoughnut({ rawData }: props) {
   ChartJS.register(ArcElement, Tooltip, Legend);
+  const dataSrc = rawData.map((i) => i.data);
+  const backgroundColor = rawData.map((i) => i.color);
 
   const config: ChartData<"doughnut", number[], unknown> = {
     datasets: [
       {
-        data: data?.map((item) => item.amount),
-        backgroundColor: ["#27462C", "#56915D", "#B9D4B9"],
+        data: dataSrc,
+        backgroundColor,
         hoverOffset: 4,
-        offset: -12,
+        // offset: -12,
         rotation: 30,
         borderWidth: 4,
-        borderRadius: { innerStart: 100, outerStart: 100 },
+        // borderRadius: { innerStart: 100, outerStart: 100 },
         borderJoinStyle: "round",
       },
     ],
@@ -48,9 +44,17 @@ export default function DoughnutChart({ data, text }: Props) {
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.fillText(text || "", chart.getDatasetMeta(0).data[0].x, chart.getDatasetMeta(0).data[0].y);
+      ctx.fillText(
+        `${chart.data.datasets[0].data.reduce((p, c) => p + c, 0).toFixed(0)}M Tons` || "",
+        chart.getDatasetMeta(0).data[0]?.x ?? 0,
+        chart.getDatasetMeta(0).data[0]?.y ?? 0,
+      );
     },
   };
 
-  return <Doughnut data={config} options={options} plugins={[textCenter]} />;
+  return (
+    <div className="w-10 h-full flex justify-center items-center flex-grow ">
+      <Doughnut data={config} options={options} plugins={[textCenter]} />
+    </div>
+  );
 }

@@ -1,12 +1,15 @@
+import { ChartdataSrcs } from "@/model/interface";
+import ChartVerticalBar from "@element/ChartVerticalBar";
 import React from "react";
-import VerticalBarChart from "@element/VerticalBarChart";
 
-function BarChartWidget() {
-  const data = new Array(5).fill(1).map((i, d) => d * 1e6);
-
+interface Props {
+  data: ChartdataSrcs[];
+}
+function BarChartWidget({ data }: Props) {
   return (
-    <div className="w-full h-full bg-primary-gray-50 rounded-2xl grid grid-cols-1  p-6">
-      <VerticalBarChart rawData={data} />
+    <div className="w-full h-full max-h-[300px] bg-primary-gray-50 rounded-2xl flex flex-col  p-4">
+      <h2>Carbon credit</h2>
+      <ChartVerticalBar rawData={data} />
     </div>
   );
 }

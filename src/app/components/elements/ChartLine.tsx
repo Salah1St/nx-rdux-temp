@@ -1,52 +1,53 @@
 "use client";
 
+import { LineChartdataSrcs } from "@/model/interface";
 import { primaryColor } from "@widget/dashboard/Page/DashboardData/constant/color";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Point, ChartData } from "chart.js";
+import { useMemo } from "react";
 import { Line } from "react-chartjs-2";
 
 interface Props {
-  CurrentData: number[];
-  CompareData: number[];
+  rawData: LineChartdataSrcs[];
 }
-
-export default function ChartLine({ CurrentData, CompareData }: Props) {
+interface lineDateset {
+  data: number[];
+  borderColor: string;
+}
+export default function ChartLine({ rawData }: Props) {
   ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-  const labels = new Array(5)
-    .fill(1)
-    .map((i, d) => new Date().getFullYear() - d)
-    .reverse();
+  const labels = rawData.map((i) => i.label);
+  const rawDatasets: lineDateset[] = new Array(rawData[0].data.length)
+    .fill(0)
+    .map(() => ({ data: [], borderColor: primaryColor[+Math.floor(Math.random() * primaryColor.length).toFixed(0)] }));
 
+  rawData.forEach((i, d) => {
+    i.data.forEach((j, dx) => {
+      rawDatasets[dx].data.push(j);
+    });
+  });
+
+  const datasets = useMemo(() => rawDatasets, [rawDatasets]);
   const data: ChartData<"line", (number | Point | null)[], unknown> = {
     labels,
-    datasets: [
-      {
-        label: "CurrentData",
-        data: CurrentData,
-        borderColor: primaryColor[0],
-      },
-      {
-        label: "CompareData",
-        data: CompareData,
-        borderColor: primaryColor[1],
-      },
-    ],
+    datasets,
   };
   const options = {
     responsive: true,
-    scales: { x: { grid: { display: false } }, y: { ticks: { callback: (v: string | number) => +v / 1e6 + "M" } } },
+    scales: { x: { grid: { display: false } }, y: { beginAtZero: false, ticks: { callback: (v: string | number) => +v / 1e6 + "M" } } },
     plugins: {
       legend: { display: false },
       title: {
-        display: true,
-        text: "Carbon credit",
-        font: { size: 20 },
-        padding: 20,
+        display: false,
       },
     },
   };
 
-  return <Line options={options} data={data} />;
+  return (
+    <div className="w-full h-10 flex justify-center items-center flex-grow">
+      <Line options={options} data={data} />
+    </div>
+  );
 }
 
 // export const options = {
