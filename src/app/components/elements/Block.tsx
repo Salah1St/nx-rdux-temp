@@ -7,12 +7,47 @@ interface props {
 }
 function Block({ ratio, children }: props) {
   const { dashboardSize } = useDashboard();
+  const amount = Array.isArray(children) ? children.length : 1;
+  let ratioClass = "grid-cols-1";
+  switch (ratio) {
+    case "20%":
+      ratioClass = "grid-cols-20%";
+      break;
+    case "30%":
+      ratioClass = "grid-cols-30%";
+      break;
+    case "40%":
+      ratioClass = "grid-cols-40%";
+      break;
+    case "50%":
+      ratioClass = "grid-cols-50%";
+      break;
+    case "60%":
+      ratioClass = "grid-cols-60%";
+      break;
+    case "70%":
+      ratioClass = "grid-cols-70%";
+      break;
+    case "80%":
+      ratioClass = "grid-cols-80%";
+      break;
+    default:
+      ratioClass = "grid-cols-1";
+      break;
+  }
 
-  return dashboardSize ? (
-    <div className={`w-full min-h-[300px] grid gap-4  ${ratio === "100%" || dashboardSize < 640 ? "grid-cols-1" : ` grid-cols-[50%_1fr] `}   my-4 `}>{children}</div>
-  ) : (
-    <div className={`w-full min-h-[300px] grid gap-4   ${ratio === "100%" ? "grid-cols-1" : `grid-cols-[${ratio}_1fr]`}  my-4 `}>
-      {Array.isArray(children) ? children.map((i, d) => <Skeleton key={d} className="w-full rounded-2xl" />) : <Skeleton className="w-full rounded-2xl" />}
+  return (
+    <div
+      className={`relative w-full grid gap-4  overflow-hidden min-h-[300px]  ${
+        dashboardSize > 640 ? `h-[300px]  ${ratioClass}` : `h-[${300 * amount}px] grid-cols-1 grid-rows-${amount}`
+      }`}
+    >
+      {children}
+      {!dashboardSize && (
+        <div className={`absolute top-0 left-0 h-full  w-full overflow-hidden z-50 bg-slate-50`}>
+          <Skeleton className="w-full rounded-2xl" />
+        </div>
+      )}
     </div>
   );
 }

@@ -14,11 +14,12 @@ export default function Dashboard({ children }: DashboardProps) {
   const { toggleLeftSideBar, handleToggleLeftSideBar, toggleRightSideBar, handleToggleRightSideBar } = useDashboard();
 
   return (
-    <div className="w-screen h-screen flex overflow-hidden ">
+    <div className="w-screen h-screen flex ">
       <DashboardLeftSideBar show={toggleLeftSideBar} />
-      <div className="flex-grow">
+      <div className="relative h-full w-10 flex flex-col flex-grow">
         <DashboardHeader handleToggleLeftSideBar={handleToggleLeftSideBar} handleToggleRightSideBar={handleToggleRightSideBar} />
-        {children}
+        <div className="h-10 flex-grow">{children}</div>
+        <div className="absolute w-full bottom-0 left-0 z-50 h-10 bg-gradient-to-t from-[rgba(255,255,255,0.5)] to-transparent" />
       </div>
       <DashboardRightSideBar show={toggleRightSideBar} />
     </div>

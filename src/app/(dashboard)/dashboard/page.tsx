@@ -1,8 +1,9 @@
 import DashboardContent from "@widget/dashboard/Page/DashboardContent";
+import axios from "axios";
 
 import React from "react";
 
-function page() {
+async function page() {
   return (
     <div className="w-full h-full ">
       <DashboardContent />

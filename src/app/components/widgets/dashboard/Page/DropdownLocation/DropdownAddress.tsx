@@ -24,7 +24,7 @@ function DropdownAddress({ onChange }: props) {
   const handleSubDistrict = (target: OptionItem) => {};
 
   return (
-    <div className="w-full h-full flex items-center gap-4">
+    <div className="sticky top-0 w-full h-full flex items-center gap-4">
       <Selection data={Thailand.provincesConv} onChange={(e) => handleProvince(e)} placeHolder="All provinces" />
       <Selection data={districtId ? Thailand.districtsConv[districtId] : null} onChange={(e) => handleDistrict(e)} placeHolder="All district" type="chain" />
       <Selection data={subDistrictId ? Thailand.subdistrictsConv[subDistrictId] : null} onChange={(e) => handleSubDistrict(e)} placeHolder="All sub-district" type="chain" />

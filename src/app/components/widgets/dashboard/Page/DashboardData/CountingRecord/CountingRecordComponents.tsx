@@ -1,18 +1,21 @@
+import { useDashboard } from "@/context/DashboardContext";
 import React from "react";
 
 function CountingRecordComponents() {
+  const { dashboardSize } = useDashboard();
+
   return (
-    <div className="w-full h-fit grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <Record />
-      <Record />
-      <Record />
+    <div className={`w-full h-fit grid  gap-4 ${dashboardSize > 640 ? `h-[120px] grid-cols-3` : `h-[400px] grid-cols-1 grid-rows-3`}`}>
+      <Record dashboardSize={dashboardSize} />
+      <Record dashboardSize={dashboardSize} />
+      <Record dashboardSize={dashboardSize} />
     </div>
   );
 }
 
-function Record() {
+function Record({ dashboardSize }: { dashboardSize: number }) {
   return (
-    <div className=" h-[120px] sm:h-[150px]  bg-primary-brand-100 rounded-2xl grid grid-rows-2 items-center px-4 md:px-8 py-4">
+    <div className={`${dashboardSize > 640 ? "h-[120px]" : "h-[100px] px-8"} bg-primary-brand-100 rounded-2xl grid grid-rows-2 items-center px-4  py-4`}>
       <div className="flex">
         <div className="text-base md:text-xl font-bold whitespace-nowrap">Carbon Footprint</div>
       </div>

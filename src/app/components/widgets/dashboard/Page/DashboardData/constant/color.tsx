@@ -1,1 +1,1 @@
-export const primaryColor = ["#dbe9da", "#b9d4b9", "#8db58f", "#609164", "#56915d", "#305935", "#27462c", "#263f2a", "#223726"];
+export const primaryColor = ["#dbe9da", "#b9d4b9", "#8db58f", "#609164", "#56915d", "#305935", "#27462c", "#223726"];
