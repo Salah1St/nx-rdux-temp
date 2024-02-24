@@ -5,7 +5,7 @@ import CreateAndJoinGroup from "./CreateAndJoinGroup";
 
 function CreateAndJoinContent() {
   return (
-    <div className="relative w-full h-full flex flex-col   p-8 ">
+    <div className="relative w-full h-full flex flex-col px-8 ">
       <CreateAndJoinSearchBar />
       <CreateAndJoinFilterBar />
       <CreateAndJoinGroup />

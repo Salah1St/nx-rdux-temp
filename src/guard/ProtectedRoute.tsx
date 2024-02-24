@@ -1,15 +1,12 @@
-import { ReactNode, ReactElement, FC, useEffect } from "react";
+import { ReactElement, FC } from "react";
 
 import { useRouter } from "next/navigation";
 import { getAccessToken } from "@/utils/localStroage";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
 
 interface ProtectedRouteProps {
   children: ReactElement;
 }
 const ProtectedRoute: FC<ProtectedRouteProps> = ({ children }) => {
-  const { isAuthen } = useSelector((state: RootState) => state.user);
   const router = useRouter();
   const token = getAccessToken();
 

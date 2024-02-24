@@ -4,7 +4,7 @@ import React from "react";
 function page() {
   return (
     <div>
-      <Redirect url="organisation/create-join" />
+      <Redirect url="organisation/create_join_team" />
     </div>
   );
 }

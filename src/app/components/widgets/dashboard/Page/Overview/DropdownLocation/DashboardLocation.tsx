@@ -13,7 +13,7 @@ function DashboardLocation() {
     console.log(value);
   };
   return (
-    <div className="absolute z-50 top-0 left-0 w-full h-10  flex justify-between items-center bg-[rgba(255,255,255,0.9)] backdrop-blur-sm   p-4">
+    <div className="absolute z-50 top-0 left-0 w-full flex justify-between items-center bg-[rgba(255,255,255,0.9)] backdrop-blur-sm px-8  py-2">
       <DropdownAddress onChange={(e) => handleAddress(e)} />
       <DropdownYear onChange={(e) => handleOnchange(e)} />
     </div>

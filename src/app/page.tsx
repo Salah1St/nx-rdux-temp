@@ -33,21 +33,22 @@ export default function Home() {
 export default function Home() {
   const router = useRouter();
   useEffect(() => {
-    setTimeout(() => {
+    const id = setTimeout(() => {
       const token = getAccessToken();
-      router.replace(!token ? "./dashboard" : "./login");
+      router.replace(!token ? "./dashboard/overview" : "./login");
     }, 2000);
+    return () => clearTimeout(id);
   }, [router]);
 
   https: return (
-    <div className=" w-screen h-screen  flex">
+    <div className="relative w-screen h-screen  flex">
       <Image width={1000} height={1000} alt="" className="w-1/2  object-left object-cover flex-1" src={images.backgroundLanding.default.src} />
       <div className=" h-full bg-slate-50 flex-1 flex justify-center items-center">
         <div className="  border border-slate-200 shadow-md w-[400px] h-[400px] rounded-lg flex flex-col gap-4 justify-center p-8">
           <FormLogin className="" />
         </div>
       </div>
-      <div className="animate-fade-display fixed top-0 left-0 w-screen h-screen  flex justify-center items-center bg-slate-900">
+      <div className="animate-fade-display  fixed top-0 left-0 w-screen h-screen  flex justify-center items-center bg-slate-900">
         <Image className="animate-heart " width={128} height={128} alt="" src={icon.Ccb} />
       </div>
     </div>

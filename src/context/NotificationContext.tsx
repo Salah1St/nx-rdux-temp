@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppDispatch } from "@/hooks/useRedux";
-import { setDesktop, setMobile, setTablet } from "@/redux/slice/mediaSlice";
+import { setDesktop, setMobile, setTablet, setViewport } from "@/redux/slice/mediaSlice";
 import Spinner from "@element/Spinner";
 import React, { Dispatch, FC, ReactNode, createContext, useContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -53,6 +53,7 @@ const NotificationContextProvider: FC<NotificationProviderProps> = ({ children }
     const location = window.location.pathname;
 
     const handleResize = () => {
+      dispatch(setViewport(window.innerWidth));
       if (window.innerWidth > 1078) {
         dispatch(setDesktop(window.innerWidth));
       } else if (window.innerWidth < 640) {
@@ -61,6 +62,7 @@ const NotificationContextProvider: FC<NotificationProviderProps> = ({ children }
         dispatch(setTablet(window.innerWidth));
       }
     };
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);

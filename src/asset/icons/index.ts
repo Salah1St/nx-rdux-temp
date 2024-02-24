@@ -1,6 +1,4 @@
 const icons = {
-  logo01: require("./napatsorn_logo_01.svg"),
-  logo02: require("./napatsorn_logo_02.svg"),
   list: require("./list.svg"),
   upload: require("./upload.svg"),
   logout: require("./logout.svg"),

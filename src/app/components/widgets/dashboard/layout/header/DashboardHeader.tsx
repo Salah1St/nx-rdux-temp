@@ -16,15 +16,15 @@ export default function DashboardHeader({ handleToggleLeftSideBar, handleToggleR
     path_origin = window.location.origin;
   }
   return (
-    <div className="w-full h-[68px] border-b-[1px] border-opacity-10 py-5 px-7 flex items-center justify-between">
+    <div className="w-full flex items-center justify-between px-8 py-4">
       <div className="flex gap-2">
-        <div className={`p-2 border border-transparent rounded-full flex justify-center items-center hover:border-primary-brand-400 cursor-pointer`}>
-          <Image onClick={handleToggleLeftSideBar} src={icons.sidebar} alt="" />
+        <div onClick={handleToggleLeftSideBar} className={`p-2  rounded-full flex justify-center items-center hover:bg-slate-100 active:scale-90  cursor-pointer`}>
+          <Image height={20} src={icons.sidebar} alt="" />
         </div>
         <div className="flex justify-center items-center">
           {path.map((i, d) => (
             <div key={d} className="flex gap-2">
-              <Link href={`${path_origin}/${path.slice(0, d + 1).reduce((p, c) => `${p}/${c}`)}`} className="hover:underline pl-2">
+              <Link href={`${path.slice(0, d + 1).reduce((p, c) => `${p}/${c}`)}`} className="hover:underline pl-2">
                 {i.split("_").map((i) => i.charAt(0).toUpperCase() + i.slice(1) + " ")}
               </Link>
               <div>/</div>
@@ -32,9 +32,13 @@ export default function DashboardHeader({ handleToggleLeftSideBar, handleToggleR
           ))}
         </div>
       </div>
-      <div className="flex gap-2">
-        <Image src={icons.bell} alt="" />
-        <Image onClick={handleToggleRightSideBar} className="scale-x-[-1]" src={icons.sidebar} alt="" />
+      <div className="flex  gap-2 justify-between items-center">
+        <div className={`p-2  rounded-full flex justify-center items-center hover:bg-slate-100 active:scale-90  cursor-pointer`}>
+          <Image height={24} src={icons.bell} alt="" />
+        </div>
+        <div onClick={handleToggleRightSideBar} className={`p-2  rounded-full flex justify-center items-center hover:bg-slate-100 active:scale-90  cursor-pointer`}>
+          <Image height={20} className="scale-[-1]" src={icons.sidebar} alt="" />
+        </div>
       </div>
     </div>
   );

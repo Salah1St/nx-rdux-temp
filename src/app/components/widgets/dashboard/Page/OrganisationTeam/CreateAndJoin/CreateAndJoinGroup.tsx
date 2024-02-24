@@ -3,7 +3,7 @@ import React from "react";
 function CreateAndJoinGroup() {
   const group = new Array(10).fill(0).map((i, d) => d);
   return (
-    <div className="w-full h-10 grow overflow-y-scroll py-2">
+    <div className="w-full h-10 grow overflow-y-scroll  no-scrollbar  py-2">
       {group.map((i, d) => (
         <TeamCard key={d} />
       ))}
@@ -15,7 +15,7 @@ export default CreateAndJoinGroup;
 
 function TeamCard() {
   return (
-    <div className="w-full h-32  border-b-2 border-slate-200  flex justify-between items-center px-2 py-4">
+    <div className="w-full h-32  border-b-2 border-slate-200  flex justify-between items-center px-2 py-4 ">
       <div className="w-full h-full flex items-center gap-4">
         <div className="h-full aspect-square rounded-full bg-slate-200"></div>
         <div className="flex flex-col">

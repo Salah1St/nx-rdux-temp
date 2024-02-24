@@ -13,8 +13,8 @@ function CreateAndJoinSearchBar({}: props) {
   const [search, setSearch] = useState("");
   const handleSearch = () => {};
   return (
-    <div className="w-full h-20 flex justify-between items-center ">
-      <div className="flex h-full flex-1 p-5">
+    <div className="w-full h-20 flex justify-between items-center py-5">
+      <div className="flex h-full flex-1 ">
         <input
           className=" w-4 grow border  border-r-0 border-slate-200 rounded-lg rounded-r-none p-2  outline-primary-brand-400 "
           type="text"
@@ -24,9 +24,9 @@ function CreateAndJoinSearchBar({}: props) {
           Search
         </button>
       </div>
-      <div className="flex-1 flex  flex-col items-end px-4">
+      <div className="flex-1 flex  flex-col items-end ">
         <div>Cannot find your team?</div>
-        <Link className="text-link hover:scale-105 active:scale-95" href={"create-join/create_new_team"}>
+        <Link className="text-link hover:scale-105 active:scale-95" href={"create_join_team/create_new_team"}>
           Create an organisation team
         </Link>
       </div>

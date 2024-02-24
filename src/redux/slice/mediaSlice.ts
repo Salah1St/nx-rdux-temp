@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const mediaSlice = createSlice({
   name: "media",
-  initialState: { isDesktop: false, isTablet: false, isMobile: false, dashboardSize: 0 },
+  initialState: { isDesktop: false, isTablet: false, isMobile: false, viewport: 0, dashboardSize: 0 },
   reducers: {
     setDesktop: (state, action) => {
       state.isDesktop = true;
@@ -22,9 +22,12 @@ const mediaSlice = createSlice({
     setDashboardSize: (state, action) => {
       state.dashboardSize = action.payload;
     },
+    setViewport: (state, action) => {
+      state.viewport = action.payload;
+    },
   },
 });
 
 export default mediaSlice.reducer;
-const { setDesktop, setTablet, setMobile, setDashboardSize } = mediaSlice.actions;
-export { setDesktop, setTablet, setMobile, setDashboardSize };
+const { setDesktop, setTablet, setMobile, setDashboardSize, setViewport } = mediaSlice.actions;
+export { setDesktop, setTablet, setMobile, setDashboardSize, setViewport };

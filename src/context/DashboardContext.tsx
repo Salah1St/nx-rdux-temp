@@ -1,5 +1,5 @@
 "use client";
-import { useAppDispatch } from "@/hooks/useRedux";
+import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { ChartdataSrcs, LineChartdataSrcs } from "@/model/interface";
 import { setDashboardSize } from "@/redux/slice/mediaSlice";
 import axios from "axios";
@@ -14,7 +14,6 @@ interface DashboardContext {
   toggleLeftSideBar: boolean;
   handleToggleRightSideBar: () => void;
   toggleRightSideBar: boolean;
-  dashboardRef: RefObject<HTMLDivElement>;
   carbonDonut: ChartdataSrcs[];
   emissionFactor: ChartdataSrcs[];
   carbonCredit: ChartdataSrcs[];
@@ -30,8 +29,8 @@ const DashboardContextProvider: FC<DashboardProviderProps> = ({ children }) => {
   const [emissionFactor, setEmissionFactor] = useState<ChartdataSrcs[]>([]);
   const [carbonCredit, setCarbonCredit] = useState<ChartdataSrcs[]>([]);
   const [carbonCreditLine, setCarbonCreditLine] = useState<LineChartdataSrcs[]>([]);
-  const dashboardRef = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
+  const viewport = useAppSelector((s) => s.media.viewport);
 
   function handleToggleLeftSideBar() {
     setToggleLeftSideBar((prev) => !prev);
@@ -40,16 +39,6 @@ const DashboardContextProvider: FC<DashboardProviderProps> = ({ children }) => {
   function handleToggleRightSideBar() {
     setToggleRightSideBar((prev) => !prev);
   }
-  const handleResize = async () => {
-    await new Promise<number>((res, rej) => {
-      setTimeout(() => {
-        res(1);
-      }, 600);
-    });
-    if (dashboardRef.current) {
-      dispatch(setDashboardSize(dashboardRef.current.clientWidth));
-    }
-  };
   async function fetchDashboardDate() {
     const mock = await axios.get(String(process.env.INNER_API_URL) + "/api/mock");
     setCarbonDonut(mock.data.carbonDonut);
@@ -59,15 +48,16 @@ const DashboardContextProvider: FC<DashboardProviderProps> = ({ children }) => {
   }
 
   useEffect(() => {
-    handleResize();
-  }, [toggleRightSideBar, toggleLeftSideBar]);
+    if (viewport > 0) {
+      const right = toggleRightSideBar ? 280 : 0;
+      const left = toggleLeftSideBar ? 280 : 0;
+      const size = viewport - left - right;
+      dispatch(setDashboardSize(size));
+    }
+  }, [viewport, toggleRightSideBar, toggleLeftSideBar, dispatch]);
+
   useEffect(() => {
     fetchDashboardDate();
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
   }, []);
   return (
     <DashboardContext.Provider
@@ -76,7 +66,6 @@ const DashboardContextProvider: FC<DashboardProviderProps> = ({ children }) => {
         toggleLeftSideBar,
         handleToggleRightSideBar,
         toggleRightSideBar,
-        dashboardRef,
         emissionFactor,
         carbonCredit,
         carbonCreditLine,

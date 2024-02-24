@@ -1,23 +1,18 @@
 "use client";
-import icons from "@/asset/icons";
-import { Thailand, provinces } from "@/asset/json";
-import { useDashboard } from "@/context/DashboardContext";
-import { RootState } from "@/redux/store";
+import { Thailand } from "@/asset/json";
+import { useAppSelector } from "@/hooks/useRedux";
 import { useClickOutside } from "@/utils/handleClickoutSide";
 import Selection, { OptionItem } from "@element/Selection";
-import Image from "next/image";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 
 interface props {
   onChange: (value: string) => void;
 }
 function DropdownAddress({ onChange }: props) {
-  const [value, setValue] = useState("All Province");
   const [districtId, setdistrictId] = useState<number | null>(null);
   const [subDistrictId, setSubDistrictId] = useState<number | null>(null);
   const [show, setShow] = useState(false);
-  const dashboardSize = useSelector((s: RootState) => s.media.dashboardSize);
+  const dashboardSize = useAppSelector((s) => s.media.dashboardSize);
 
   const ref = useClickOutside(() => setShow(false));
   const handleProvince = (target: OptionItem) => {
@@ -30,18 +25,18 @@ function DropdownAddress({ onChange }: props) {
 
   return (
     <div className="sticky top-0 w-full h-full flex items-center gap-4">
-      <Selection data={Thailand.provincesConv} onChange={(e) => handleProvince(e)} placeHolder="All provinces" icon={dashboardSize > 640} />
+      <Selection data={Thailand.provincesConv} onChange={(e) => handleProvince(e)} placeHolder="select provinces" icon={dashboardSize > 640} />
       <Selection
         data={districtId ? Thailand.districtsConv[districtId] : null}
         onChange={(e) => handleDistrict(e)}
-        placeHolder="All district"
+        placeHolder="select district"
         type="chain"
         icon={dashboardSize > 640}
       />
       <Selection
         data={subDistrictId ? Thailand.subdistrictsConv[subDistrictId] : null}
         onChange={(e) => handleSubDistrict(e)}
-        placeHolder="All sub-district"
+        placeHolder="select sub-district"
         type="chain"
         icon={dashboardSize > 640}
       />

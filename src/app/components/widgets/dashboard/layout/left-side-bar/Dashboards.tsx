@@ -10,7 +10,7 @@ export default function Dashboards() {
         <div className="w-6 h-6 flex justify-center items-center">
           <Image src={icons.rightVector} alt="" />
         </div>
-        <Link href={"../dashboard/overview"} className="text-sidebartextselected font-bold flex items-center">
+        <Link href={"../dashboard/overview"} className="font-bold flex items-center hover:text-primary-brand-400 active:scale-95">
           Overview
         </Link>
       </div>

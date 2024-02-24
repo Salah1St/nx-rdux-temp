@@ -102,7 +102,7 @@ const config: Config = {
       },
       animation: {
         heart: "heartPulse 2s ease-in-out infinite",
-        "fade-display": "fade 2s ease-in-out 1 forwards",
+        "fade-display": "fade 2.5s ease-in-out 1 forwards",
         "spin-slow": "spin 2s linear infinite",
         "fade-slow": "wiggle 2s ease-in-out  1 ",
         "fade-in": "scaleup 3s ease-in-out  1 ",
@@ -123,8 +123,9 @@ const config: Config = {
         },
         fade: {
           "0%": { opacity: "1" },
-          "75%": { opacity: "0.9" },
-          "100%": { opacity: "0" },
+          "50%": { opacity: "0.9" },
+          "90%": { opacity: "0" },
+          "100%": { "z-index": "-10" },
         },
         wiggle: {
           "0%": { width: "100%" },

@@ -1,14 +1,13 @@
 import { Skeleton } from "@/components/ui/skeleton";
-import { useDashboard } from "@/context/DashboardContext";
-import { RootState } from "@/redux/store";
+import { useAppSelector } from "@/hooks/useRedux";
 import React from "react";
-import { useSelector } from "react-redux";
+
 interface props {
   children: JSX.Element | JSX.Element[];
   ratio: "20%" | "30%" | "40%" | "50%" | "60%" | "70%" | "80%" | "100%";
 }
 function Block({ ratio, children }: props) {
-  const dashboardSize = useSelector((s: RootState) => s.media.dashboardSize);
+  const dashboardSize = useAppSelector((s) => s.media.dashboardSize);
 
   const amount = Array.isArray(children) ? children.length : 1;
   let ratioClass = "grid-cols-1";

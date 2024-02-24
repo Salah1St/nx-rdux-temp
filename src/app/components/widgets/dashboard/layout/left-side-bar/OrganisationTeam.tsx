@@ -17,7 +17,12 @@ function CreateAndJoinTeamButton() {
       <div role="button" className="w-6 h-6 flex justify-center items-center rounded-full ">
         <Image src={icons.plus} alt="" />
       </div>
-      <Link href={"/organisation/create-join"} replace role="button" className="text-gray-400  hover:text-primary-brand-400 font-bold flex-grow flex items-center active:scale-90">
+      <Link
+        href={"/organisation/create_join_team"}
+        replace
+        role="button"
+        className="text-black  hover:text-primary-brand-400 font-bold flex-grow flex items-center active:scale-90"
+      >
         Create/Join Team
       </Link>
       <div className="w-6 h-6 flex justify-center items-center">

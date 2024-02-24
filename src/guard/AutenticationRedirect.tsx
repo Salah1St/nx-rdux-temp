@@ -1,19 +1,16 @@
 "use client";
 
 import { ReactElement, FC, useEffect } from "react";
-
 import { useRouter } from "next/navigation";
-
 import { Role } from "@/model/enum";
 import { getAccessToken } from "@/utils/localStroage";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import { useAppSelector } from "@/hooks/useRedux";
 interface AutenticationRedirectProps {
   children: ReactElement;
 }
 const AutenticationRedirect: FC<AutenticationRedirectProps> = ({ children }) => {
   const router = useRouter();
-  const { isAuthen } = useSelector((state: RootState) => state.user);
+  const { isAuthen } = useAppSelector((state) => state.user);
   const token = getAccessToken();
 
   useEffect(() => {

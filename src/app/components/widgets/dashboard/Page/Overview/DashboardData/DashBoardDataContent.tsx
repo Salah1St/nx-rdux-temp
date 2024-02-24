@@ -7,12 +7,11 @@ import Block from "@element/Block";
 import LineChartWidget from "./LineChartWidget/LineChartWidget";
 import EmissionList from "./BarChartWidget/EmissionList";
 import { useDashboard } from "@/context/DashboardContext";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import { useAppSelector } from "@/hooks/useRedux";
 
 function DashBoardDataContent() {
   const { emissionFactor, carbonCredit, carbonCreditLine, carbonDonut } = useDashboard();
-  const dashboardSize = useSelector((s: RootState) => s.media.dashboardSize);
+  const dashboardSize = useAppSelector((s) => s.media.dashboardSize);
 
   return (
     <div className=" w-full max-h-full grid grid-cols-1 gap-4  overflow-y-scroll overflow-x-hidden  py-4  no-scrollbar ">

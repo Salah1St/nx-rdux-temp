@@ -1,10 +1,8 @@
-import { useDashboard } from "@/context/DashboardContext";
-import { RootState } from "@/redux/store";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "@/hooks/useRedux";
 
 function CountingRecordComponents() {
-  const dashboardSize = useSelector((s: RootState) => s.media.dashboardSize);
+  const dashboardSize = useAppSelector((s) => s.media.dashboardSize);
 
   return (
     <div className={`w-full h-fit grid  gap-4 ${dashboardSize > 640 ? `h-[120px] grid-cols-3` : `h-[400px] grid-cols-1 grid-rows-3`}`}>
