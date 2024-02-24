@@ -1,3 +1,4 @@
+"use client";
 import icons from "@/asset/icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +11,10 @@ interface Props {
 
 export default function DashboardHeader({ handleToggleLeftSideBar, handleToggleRightSideBar }: Props) {
   const path = usePathname().split("/").slice(1);
-
+  let path_origin = "";
+  if (typeof window !== "undefined") {
+    path_origin = window.location.origin;
+  }
   return (
     <div className="w-full h-[68px] border-b-[1px] border-opacity-10 py-5 px-7 flex items-center justify-between">
       <div className="flex gap-2">
@@ -20,7 +24,7 @@ export default function DashboardHeader({ handleToggleLeftSideBar, handleToggleR
         <div className="flex justify-center items-center">
           {path.map((i, d) => (
             <div key={d} className="flex gap-2">
-              <Link href={`${window.location.origin}/${path.slice(0, d + 1).reduce((p, c) => `${p}/${c}`)}`} className="hover:underline pl-2">
+              <Link href={`${path_origin}/${path.slice(0, d + 1).reduce((p, c) => `${p}/${c}`)}`} className="hover:underline pl-2">
                 {i.split("_").map((i) => i.charAt(0).toUpperCase() + i.slice(1) + " ")}
               </Link>
               <div>/</div>
