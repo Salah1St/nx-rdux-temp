@@ -51,7 +51,7 @@ const DashboardContextProvider: FC<DashboardProviderProps> = ({ children }) => {
     }
   };
   async function fetchDashboardDate() {
-    const mock = await axios.get("http://localhost:3000/api/mock");
+    const mock = await axios.get(String(process.env.API_URL) + "/api/mock");
     setCarbonDonut(mock.data.carbonDonut);
     setEmissionFactor(mock.data.emissionFactor);
     setCarbonCredit(mock.data.carbonCredit);
