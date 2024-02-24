@@ -149,7 +149,7 @@ function HouseholdListDataContent() {
           {currentItems.map((item, index) => (
             <tr key={index} className="border-b cursor-pointer">
               <td className="p-3">
-                <div className="ps-10 flex gap-4">
+                <div className="ps-7 flex gap-4">
                   <Image className="" src={icons.mapPin} alt="" />
                   {item.address}
                 </div>
