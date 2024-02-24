@@ -34,5 +34,9 @@ const icons = {
   avatar: require("./avatar.svg"),
   broadcast: require("./broadcast.svg"),
   arrowRise: require("./ArrowRise.svg"),
+  mapPin: require("./map-pin.svg"),
+  sort: require("./sort.svg"),
+  footPrintUp: require("./footPrintUp.svg"),
+  footPrintDown: require("./footPrintDown.svg"),
 };
 export default icons;
