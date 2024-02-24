@@ -5,6 +5,7 @@ import OrganisationTeam from "./OrganisationTeam";
 import Supports from "./Supports";
 import UserInfo from "./UserInfo";
 import Logo from "./Logo";
+import React from "react";
 
 interface props {
   show: boolean;

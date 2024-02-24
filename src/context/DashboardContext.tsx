@@ -1,5 +1,7 @@
 "use client";
+import { useAppDispatch } from "@/hooks/useRedux";
 import { ChartdataSrcs, LineChartdataSrcs } from "@/model/interface";
+import { setDashboardSize } from "@/redux/slice/mediaSlice";
 import axios from "axios";
 import { FC, ReactNode, RefObject, createContext, useContext, useEffect, useRef, useState } from "react";
 
@@ -13,7 +15,6 @@ interface DashboardContext {
   handleToggleRightSideBar: () => void;
   toggleRightSideBar: boolean;
   dashboardRef: RefObject<HTMLDivElement>;
-  dashboardSize: number;
   carbonDonut: ChartdataSrcs[];
   emissionFactor: ChartdataSrcs[];
   carbonCredit: ChartdataSrcs[];
@@ -24,12 +25,13 @@ const DashboardContext = createContext<DashboardContext | null>(null);
 const DashboardContextProvider: FC<DashboardProviderProps> = ({ children }) => {
   const [toggleLeftSideBar, setToggleLeftSideBar] = useState(true);
   const [toggleRightSideBar, setToggleRightSideBar] = useState(true);
-  const [dashboardSize, setDashboardSize] = useState<number>(0);
+
   const [carbonDonut, setCarbonDonut] = useState<ChartdataSrcs[]>([]);
   const [emissionFactor, setEmissionFactor] = useState<ChartdataSrcs[]>([]);
   const [carbonCredit, setCarbonCredit] = useState<ChartdataSrcs[]>([]);
   const [carbonCreditLine, setCarbonCreditLine] = useState<LineChartdataSrcs[]>([]);
   const dashboardRef = useRef<HTMLDivElement>(null);
+  const dispatch = useAppDispatch();
 
   function handleToggleLeftSideBar() {
     setToggleLeftSideBar((prev) => !prev);
@@ -45,7 +47,7 @@ const DashboardContextProvider: FC<DashboardProviderProps> = ({ children }) => {
       }, 600);
     });
     if (dashboardRef.current) {
-      setDashboardSize(dashboardRef.current.clientWidth);
+      dispatch(setDashboardSize(dashboardRef.current.clientWidth));
     }
   };
   async function fetchDashboardDate() {
@@ -75,7 +77,6 @@ const DashboardContextProvider: FC<DashboardProviderProps> = ({ children }) => {
         handleToggleRightSideBar,
         toggleRightSideBar,
         dashboardRef,
-        dashboardSize,
         emissionFactor,
         carbonCredit,
         carbonCreditLine,

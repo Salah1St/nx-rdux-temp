@@ -101,6 +101,8 @@ const config: Config = {
         "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.5)",
       },
       animation: {
+        heart: "heartPulse 2s ease-in-out infinite",
+        "fade-display": "fade 2s ease-in-out 1 forwards",
         "spin-slow": "spin 2s linear infinite",
         "fade-slow": "wiggle 2s ease-in-out  1 ",
         "fade-in": "scaleup 3s ease-in-out  1 ",
@@ -110,6 +112,20 @@ const config: Config = {
         "slide-right-re": "moveRightBack 0.5s ease  1 forwards",
       },
       keyframes: {
+        heartPulse: {
+          "0%": { transform: "scale(1.0)" },
+          "25%": { transform: "scale(1.1)" },
+          "50%": { transform: "scale(1.0)" },
+          "60%": { transform: "scale(1.1)" },
+          "75%": { transform: "scale(1.0)" },
+          "90%": { transform: "scale(1.1)" },
+          "100%": { transform: "scale(1.0)" },
+        },
+        fade: {
+          "0%": { opacity: "1" },
+          "75%": { opacity: "0.9" },
+          "100%": { opacity: "0" },
+        },
         wiggle: {
           "0%": { width: "100%" },
           "100%": { width: "50%" },

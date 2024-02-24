@@ -1,12 +1,10 @@
-import DashboardContent from "@widget/dashboard/Page/DashboardContent";
-import axios from "axios";
-
+import BackButton from "@element/BackButton";
 import React from "react";
 
-async function page() {
+function page() {
   return (
-    <div className="w-full h-full ">
-      <DashboardContent />
+    <div>
+      <BackButton />
     </div>
   );
 }

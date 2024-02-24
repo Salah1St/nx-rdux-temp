@@ -1,5 +1,5 @@
+import { primaryColor } from "@/model/constants";
 import { ChartdataSrcs, LineChartdataSrcs } from "@/model/interface";
-import { primaryColor } from "@widget/dashboard/Page/DashboardData/constant/color";
 
 export async function GET() {
   const carbonDonutData = new Array(3).fill(1).map((i, d) => +(Math.random() * 100).toFixed(2));

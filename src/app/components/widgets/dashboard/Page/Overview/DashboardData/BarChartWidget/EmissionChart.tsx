@@ -1,7 +1,7 @@
+import { primaryColor } from "@/model/constants";
 import { ChartdataSrcs } from "@/model/interface";
 import ChartHorizontalBar from "@element/ChartHorizontalBar";
 import React from "react";
-import { primaryColor } from "../constant/color";
 
 interface Props {
   rawData: ChartdataSrcs[];

@@ -34,5 +34,6 @@ const icons = {
   avatar: require("./avatar.svg"),
   broadcast: require("./broadcast.svg"),
   arrowRise: require("./ArrowRise.svg"),
+  Ccb: require("./ccb.svg"),
 };
 export default icons;

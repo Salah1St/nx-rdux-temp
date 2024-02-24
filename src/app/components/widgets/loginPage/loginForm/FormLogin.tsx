@@ -52,7 +52,7 @@ function FormLogin({ className }: { className?: string }) {
       </div>
       <PrimaryButton
         onClick={() => {
-          route.push("/dashboard");
+          route.push("/dashboard/overview");
         }}
       >
         {"Next"}

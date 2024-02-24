@@ -1,5 +1,6 @@
 import icons from "@/asset/icons";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Dashboards() {
   return (
@@ -9,7 +10,9 @@ export default function Dashboards() {
         <div className="w-6 h-6 flex justify-center items-center">
           <Image src={icons.rightVector} alt="" />
         </div>
-        <div className="text-sidebartextselected font-bold flex items-center">Overview</div>
+        <Link href={"../dashboard/overview"} className="text-sidebartextselected font-bold flex items-center">
+          Overview
+        </Link>
       </div>
     </div>
   );

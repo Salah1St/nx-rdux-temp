@@ -1,6 +1,6 @@
 "use client";
 import { ChartdataSrcs } from "@/model/interface";
-import { primaryColor } from "@widget/dashboard/Page/DashboardData/constant/color";
+
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, ChartData, ChartOptions, Plugin, DatasetChartOptions, ElementChartOptions } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 

@@ -1,7 +1,8 @@
 "use client";
 
+import { primaryColor } from "@/model/constants";
 import { ChartdataSrcs } from "@/model/interface";
-import { primaryColor } from "@widget/dashboard/Page/DashboardData/constant/color";
+
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartData } from "chart.js";
 import { Bar } from "react-chartjs-2";
 

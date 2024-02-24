@@ -4,12 +4,13 @@ import EmissionChart from "./EmissionChart";
 
 interface props {
   data: ChartdataSrcs[];
+  isTitle?: boolean;
 }
 function EmissionList(props: props) {
-  const { data } = props;
+  const { data, isTitle = true } = props;
   return (
     <div className="w-full h-full max-h-[300px] flex flex-col justify-center  bg-primary-gray-50 rounded-2xl p-4">
-      <h1>Emission Factors</h1>
+      {isTitle && <h1>Emission Factors</h1>}
       <EmissionChart rawData={data} />
     </div>
   );

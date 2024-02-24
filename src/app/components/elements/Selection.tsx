@@ -15,9 +15,10 @@ interface props {
   placeHolder: string;
   data: OptionItem[] | null;
   type?: "src" | "chain";
+  icon?: boolean;
 }
 
-function Selection({ onChange, placeHolder, data, type = "src" }: props) {
+function Selection({ onChange, placeHolder, data, type = "src", icon = true }: props) {
   const { t } = useLocalization();
   const [value, setValue] = useState(placeHolder);
   const [show, setShow] = useState(false);
@@ -43,19 +44,18 @@ function Selection({ onChange, placeHolder, data, type = "src" }: props) {
 
   return (
     <div ref={ref} className={` relative w-[${width}px]  `} onClick={(e) => setShow((p) => !p)}>
-      <div className={` flex justify-between gap-4  items-center ${data ? "hover:drop-shadow-primary cursor-pointer " : " text-slate-200"}  `}>
+      <div className={` flex justify-between gap-4 whitespace-nowrap  items-center ${data ? "hover:drop-shadow-primary cursor-pointer " : " text-slate-200"}  `}>
         {value}
-        <div className="p-1 aspect-square flex justify-center items-center rounded-full ">
-          <Image src={icons.downVector} width={16} alt="" />
-        </div>
+        {icon && (
+          <div className="p-1 aspect-square flex justify-center items-center rounded-full ">
+            <Image src={icons.downVector} width={16} alt="" />
+          </div>
+        )}
       </div>
       {show && data && (
-        <div
-          ref={div1Ref}
-          className="absolute z-[60] top-10 bg-[rgba(96,145,100,0.1)] shadow-md shadow-primary-brand-900 flex flex-col  max-h-[300px] overflow-y-scroll backdrop-blur-md  border border-primary-brand-400  rounded-lg "
-        >
+        <div ref={div1Ref} className="absolute z-[60] top-8 shadow-md flex flex-col  max-h-[200px] overflow-y-scroll  rounded-lg bg-white border border-slate-50 no-scrollbar p-1">
           {data.map((i, d) => (
-            <div className="whitespace-nowrap text-white  drop-shadow-text  hover:shadow-md  px-2 cursor-pointer" key={d} onClick={(e) => handleOnClick(d)}>
+            <div className="whitespace-nowrap backdrop-blur-md bg-(rgba(255,255,255,0.5))   p-2  hover:bg-slate-50 cursor-pointer" key={d} onClick={(e) => handleOnClick(d)}>
               {i[t("enum.select") as keyof OptionItem]}
             </div>
           ))}
