@@ -97,11 +97,11 @@ function HouseholdListDataContent() {
 
   useEffect(() => {
     if (allData.length === 0) {
-      setAllData(data);
+      setAllData(data || []);
     }
 
     let list;
-    allData.length > 0 ? (list = allData) : (list = data);
+    allData.length > 0 ? (list = allData) : (list = data || []);
     setCurrentItems(list.slice(indexOfFirstItem, indexOfLastItem));
   }, [currentPage]);
 
