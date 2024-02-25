@@ -23,6 +23,7 @@ const icons = {
   user: require("./user.svg"),
   // CCBT
   ccblogo: require("./ccb-icon.svg"),
+  meatball: require("./meatball.svg"),
   sidebar: require("./sidebar-icon.svg"),
   bell: require("./bell.svg"),
   downVector: require("./down-vector.svg"),
@@ -33,5 +34,9 @@ const icons = {
   broadcast: require("./broadcast.svg"),
   arrowRise: require("./ArrowRise.svg"),
   Ccb: require("./ccb.svg"),
+  mapPin: require("./map-pin.svg"),
+  sort: require("./sort.svg"),
+  footPrintUp: require("./footPrintUp.svg"),
+  footPrintDown: require("./footPrintDown.svg"),
 };
 export default icons;
