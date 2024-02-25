@@ -8,12 +8,12 @@ interface props {
   type?: "submit" | "button" | "reset";
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
-function PrimaryButton({ id, className, children, type = "button", form, onClick }: props) {
+function SecondaryButton({ id, className, children, type = "button", form, onClick }: props) {
   const defaultButtone = "";
   return (
     <button
       id={id}
-      className={className ? className : "text-white whitespace-nowrap rounded-lg bg-primary-brand-400 hover:shadow-lg active:scale-95 px-4 py-2"}
+      className={className ? className : "text-primary-brand-400 whitespace-nowrap rounded-lg bg-primary-brand-200 hover:shadow-lg active:scale-95 px-4 py-2"}
       type={type}
       form={form}
       onClick={onClick}
@@ -23,4 +23,4 @@ function PrimaryButton({ id, className, children, type = "button", form, onClick
   );
 }
 
-export default PrimaryButton;
+export default SecondaryButton;

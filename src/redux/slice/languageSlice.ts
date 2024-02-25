@@ -4,7 +4,7 @@ interface LanguageState {
 }
 
 const initialState: LanguageState = {
-  language: "th",
+  language: "en",
 };
 
 const languageSlice = createSlice({

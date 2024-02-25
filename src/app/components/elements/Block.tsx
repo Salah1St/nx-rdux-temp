@@ -1,5 +1,5 @@
-import { Skeleton } from "@/components/ui/skeleton";
 import { useAppSelector } from "@/hooks/useRedux";
+import { Skeleton } from "@components/ui/skeleton";
 import React from "react";
 
 interface props {
@@ -10,39 +10,10 @@ function Block({ ratio, children }: props) {
   const dashboardSize = useAppSelector((s) => s.media.dashboardSize);
 
   const amount = Array.isArray(children) ? children.length : 1;
-  let ratioClass = "grid-cols-1";
-  switch (ratio) {
-    case "20%":
-      ratioClass = "grid-cols-20%";
-      break;
-    case "30%":
-      ratioClass = "grid-cols-30%";
-      break;
-    case "40%":
-      ratioClass = "grid-cols-40%";
-      break;
-    case "50%":
-      ratioClass = "grid-cols-50%";
-      break;
-    case "60%":
-      ratioClass = "grid-cols-60%";
-      break;
-    case "70%":
-      ratioClass = "grid-cols-70%";
-      break;
-    case "80%":
-      ratioClass = "grid-cols-80%";
-      break;
-    default:
-      ratioClass = "grid-cols-1";
-      break;
-  }
-
   return (
     <div
-      className={`relative w-full grid gap-4  overflow-hidden min-h-[300px]  ${
-        dashboardSize > 640 ? `h-[300px]  ${ratioClass}` : `h-[${300 * amount}px] grid-cols-1 grid-rows-${amount}`
-      }`}
+      style={{ gridTemplateColumns: ratio === "100%" || dashboardSize < 640 ? "repeat(1, minmax(0, 1fr))" : `${ratio} 1fr` }}
+      className={`relative w-full grid gap-4   overflow-hidden min-h-[300px]  ${dashboardSize > 640 ? `h-[300px]` : `h-[${300 * amount}px] grid-cols-1 grid-rows-${amount}`}`}
     >
       {children}
       {!dashboardSize && (

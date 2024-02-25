@@ -18,7 +18,7 @@ export interface subdistricts {
   subdistrictNameTh: string;
   postalCode: number;
 }
-interface DropdownItem {
+export interface DropdownItem {
   id: number;
   valueEn: string;
   valueTh: string;
