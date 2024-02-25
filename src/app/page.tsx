@@ -35,7 +35,7 @@ export default function Home() {
   useEffect(() => {
     const id = setTimeout(() => {
       const token = getAccessToken();
-      router.replace(!token ? "./dashboard/overview" : "./login");
+      router.push(!token ? "/dashboard/overview" : "/login");
     }, 2000);
     return () => clearTimeout(id);
   }, [router]);
