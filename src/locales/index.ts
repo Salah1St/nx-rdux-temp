@@ -13,8 +13,8 @@ i18n.use(initReactI18next).init({
       translation: TH,
     },
   },
-  lng: "th", // Set the default language here
-  fallbackLng: "th", // Fallback language in case a translation is missing
+  lng: "en", // Set the default language here
+  fallbackLng: "en", // Fallback language in case a translation is missing
   interpolation: {
     escapeValue: false,
   },

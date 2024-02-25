@@ -21,6 +21,7 @@
       "@element/*": ["./src/app/components/elements/*"],
       "@widget/*": ["./src/app/components/widgets/*"],
       "@layout/*": ["./src/app/components/layout/*"],
+      "@components/*": ["./src/app/components/*"],
       "@/*": ["./src/*"]
     }
   },

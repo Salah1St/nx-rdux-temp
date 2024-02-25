@@ -1,3 +1,5 @@
+import PrimaryButton from "@element/primary/PrimaryButton";
+import SecondaryButton from "@element/primary/SecondaryButton";
 import React from "react";
 
 function CreateAndJoinGroup() {
@@ -25,12 +27,8 @@ function TeamCard() {
         </div>
       </div>
       <div className=" flex justify-center items-center gap-2 py-4">
-        <button className="text-primary-brand-400 whitespace-nowrap rounded-lg bg-primary-brand-200 px-4 py-2" type="button">
-          Invite
-        </button>
-        <button className="text-white whitespace-nowrap rounded-lg bg-primary-brand-400 px-4 py-2" type="button">
-          Join Team
-        </button>
+        <SecondaryButton>Invite</SecondaryButton>
+        <PrimaryButton>Join Team</PrimaryButton>
       </div>
     </div>
   );

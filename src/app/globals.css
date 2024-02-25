@@ -15,7 +15,9 @@
     --background-end-rgb: 255, 255, 255;
   }
 }
-
+* {
+  -webkit-user-drag: none;
+}
 body {
   box-sizing: border-box;
   padding: 0;
