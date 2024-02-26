@@ -16,8 +16,10 @@ interface DashboardContext {
   toggleRightSideBar: boolean;
   carbonDonut: ChartdataSrcs[];
   emissionFactor: ChartdataSrcs[];
+  footPrintFactor: ChartdataSrcs[];
   carbonCredit: ChartdataSrcs[];
-  carbonCreditLine: LineChartdataSrcs[];
+  totalEmissionLine: LineChartdataSrcs[];
+  totalFootPrintLine: LineChartdataSrcs[];
 }
 
 const DashboardContext = createContext<DashboardContext | null>(null);
@@ -27,8 +29,10 @@ const DashboardContextProvider: FC<DashboardProviderProps> = ({ children }) => {
 
   const [carbonDonut, setCarbonDonut] = useState<ChartdataSrcs[]>([]);
   const [emissionFactor, setEmissionFactor] = useState<ChartdataSrcs[]>([]);
+  const [footPrintFactor, setFootPrintFactor] = useState<ChartdataSrcs[]>([]);
   const [carbonCredit, setCarbonCredit] = useState<ChartdataSrcs[]>([]);
-  const [carbonCreditLine, setCarbonCreditLine] = useState<LineChartdataSrcs[]>([]);
+  const [totalEmissionLine, setTotalEmissionLine] = useState<LineChartdataSrcs[]>([]);
+  const [totalFootPrintLine, setTotalFootPrintLine] = useState<LineChartdataSrcs[]>([]);
   const dispatch = useAppDispatch();
   const viewport = useAppSelector((s) => s.media.viewport);
 
@@ -43,8 +47,10 @@ const DashboardContextProvider: FC<DashboardProviderProps> = ({ children }) => {
     const mock = await axios.get(String(process.env.INNER_API_URL) + "/api/mock");
     setCarbonDonut(mock.data.carbonDonut);
     setEmissionFactor(mock.data.emissionFactor);
+    setFootPrintFactor(mock.data.footPrintFactor);
     setCarbonCredit(mock.data.carbonCredit);
-    setCarbonCreditLine(mock.data.carbonCreditLine);
+    setTotalEmissionLine(mock.data.totalEmissionLine);
+    setTotalFootPrintLine(mock.data.totalFootPrintLine);
   }
 
   useEffect(() => {
@@ -67,8 +73,10 @@ const DashboardContextProvider: FC<DashboardProviderProps> = ({ children }) => {
         handleToggleRightSideBar,
         toggleRightSideBar,
         emissionFactor,
+        footPrintFactor,
         carbonCredit,
-        carbonCreditLine,
+        totalEmissionLine,
+        totalFootPrintLine,
         carbonDonut,
       }}
     >
