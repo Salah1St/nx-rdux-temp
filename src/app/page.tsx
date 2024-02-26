@@ -1,5 +1,6 @@
 "use client";
 
+import icons from "@/asset/icons";
 import images from "@/asset/images";
 import { getAccessToken } from "@/utils/localStroage";
 import Image from "next/image";
@@ -144,6 +145,9 @@ export default function Home() {
           height={1000}
           className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-top"
         />
+      </div>
+      <div className="animate-fade-display  fixed top-0 left-0 z-50 w-screen h-screen  flex justify-center items-center bg-slate-900">
+        <Image className="animate-heart " width={128} height={128} alt="" src={icons.Ccb} />
       </div>
     </div>
   );

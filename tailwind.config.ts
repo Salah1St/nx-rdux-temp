@@ -105,7 +105,7 @@ const config: Config = {
         heart: "heartPulse 2s ease-in-out 2",
         "feed-display": "feed 1s ease-in-out forwards",
         "fade-out-display": "fadeout 0.2s linear 1 forwards",
-        "fade-display": "fade 2.5s ease-in-out 1 forwards",
+        "fade-display": "fade 1.5s ease-in-out 1 forwards",
         "spin-slow": "spin 2s linear infinite",
         "fade-slow": "wiggle 2s ease-in-out  1 ",
         "fade-in": "scaleup 3s ease-in-out  1 ",
@@ -126,9 +126,8 @@ const config: Config = {
         },
         fade: {
           "0%": { opacity: "1" },
-          "50%": { opacity: "0.5" },
-          "90%": { opacity: "0" },
-          "100%": { "z-index": "-10" },
+          "60%": { opacity: "1" },
+          "100%": { opacity: "0", visibility: "hidden" },
         },
         wiggle: {
           "0%": { width: "100%" },
