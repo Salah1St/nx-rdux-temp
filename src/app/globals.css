@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -76,6 +77,10 @@ body {
   a {
     @apply text-base;
   }
+}
+.text-gradient {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .animate-delay-2000 {
   animation-delay: 2s;

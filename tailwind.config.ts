@@ -91,6 +91,7 @@ const config: Config = {
       },
       fontFamily: {
         Line: ["LINE_Seed_Sans_TH"],
+        Comfortaa: ["Comfortaa"],
       },
       dropShadow: {
         primary: "4px 4px 8px rgba(38,63,42,0.85)",
@@ -101,7 +102,7 @@ const config: Config = {
         "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.5)",
       },
       animation: {
-        heart: "heartPulse 2s ease-in-out infinite",
+        heart: "heartPulse 2s ease-in-out 2",
         "feed-display": "feed 1s ease-in-out forwards",
         "fade-out-display": "fadeout 0.2s linear 1 forwards",
         "fade-display": "fade 2.5s ease-in-out 1 forwards",
@@ -125,7 +126,7 @@ const config: Config = {
         },
         fade: {
           "0%": { opacity: "1" },
-          "50%": { opacity: "0.9" },
+          "50%": { opacity: "0.5" },
           "90%": { opacity: "0" },
           "100%": { "z-index": "-10" },
         },
