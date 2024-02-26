@@ -102,6 +102,8 @@ const config: Config = {
       },
       animation: {
         heart: "heartPulse 2s ease-in-out infinite",
+        "feed-display": "feed 1s ease-in-out forwards",
+        "fade-out-display": "fadeout 0.2s linear 1 forwards",
         "fade-display": "fade 2.5s ease-in-out 1 forwards",
         "spin-slow": "spin 2s linear infinite",
         "fade-slow": "wiggle 2s ease-in-out  1 ",
@@ -130,6 +132,14 @@ const config: Config = {
         wiggle: {
           "0%": { width: "100%" },
           "100%": { width: "50%" },
+        },
+        feed: {
+          "0%": { height: "0%", opacity: "0" },
+          "50": { opacity: "1" },
+          "100%": { opacity: "1" },
+        },
+        fadeout: {
+          to: { height: "0px", transform: "translateY(-100%)", opacity: "0", visibility: "hidden", display: "none" },
         },
         moveLeft: {
           to: { transform: "translateX(-280px)", width: "0px", opacity: "0" },

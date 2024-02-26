@@ -6,7 +6,7 @@ import DashboardLocation from "./DropdownLocation/DashboardLocation";
 
 function DashboardContent() {
   return (
-    <div className="relative w-full h-full   p-8 ">
+    <div className="relative w-full h-full pt-8 px-8 ">
       <DashboardLocation />
       <DashBoardDataContent />
     </div>

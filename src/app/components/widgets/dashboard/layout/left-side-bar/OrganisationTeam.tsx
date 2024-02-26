@@ -1,4 +1,6 @@
 import icons from "@/asset/icons";
+import LinkButton from "@element/primary/LinkButton";
+import LinkButtonDropdown from "@element/primary/LinkButtonDropdown";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -8,54 +10,23 @@ export default function OrganisationTeam() {
   return (
     <div className="flex flex-col gap-2">
       <div className="text-gray-400 font-bold text-xs">Organisation Team</div>
-
-      <TeamButton />
+      <TeamButton name={"hua_phra_subdistrict"} />
+      <TeamButton name={"phra_nakhon_district"} />
       <CreateAndJoinTeamButton />
     </div>
   );
 }
-function TeamButton() {
-  const pathname = usePathname();
-  const [show, setShow] = useState(false);
-  const handleClick = () => {
-    if (!pathname.includes(`/organisation_team/${name}`)) {
-      setShow(true);
-    }
-  };
-
-  useEffect(() => {
-    console.log(pathname, !pathname.includes(`/organisation_team/${name}`), show);
-    if (!pathname.includes(`/organisation_team/${name}`)) {
-      setShow(false);
-    }
-  }, [pathname]);
-
-  const name = "hua_phra_subdistrict";
+function TeamButton({ name }: { name: string }) {
+  const path = `/organisation_team/${name}`;
+  const title = name
+    .split("_")
+    .map((i) => i.charAt(0).toUpperCase() + i.slice(1))
+    .join(" ");
   return (
-    <div className="flex  flex-col gap-2 px-[6px] py-1">
-      <div className="w-full flex gap-2 px-2 py-1 text-black   hover:text-primary-brand-400 cursor-pointer" onClick={handleClick}>
-        {!show ? <Image height={12} src={icons.moreThan} alt="" /> : <Image height={12} className="rotate-90" src={icons.moreThan} alt="" />}
-        <Link href={`/organisation_team/${name}`} role="button" className="font-bold flex grow items-center active:scale-95">
-          {name.split("_").map((i) => i.charAt(0).toUpperCase() + i.slice(1) + " ")}
-        </Link>
-      </div>
-      {show && (
-        <>
-          <div className="w-full flex gap-4 px-2 py-1 text-black   hover:text-primary-brand-400 cursor-pointer">
-            <Image className="invisible" height={12} src={icons.moreThan} alt="" />
-            <Link href={`/organisation_team/${name}/team_members`} role="button" className="text-sm font-semibold flex grow items-center active:scale-95">
-              {"Team Members"}
-            </Link>
-          </div>
-          <div className="w-full flex gap-4 px-2 py-1 text-black   hover:text-primary-brand-400 cursor-pointer">
-            <Image className="invisible" height={12} src={icons.moreThan} alt="" />
-            <Link href={`/organisation_team/${name}/household_list`} role="button" className="text-sm font-semibold flex grow items-center active:scale-95">
-              {"Household List"}
-            </Link>
-          </div>
-        </>
-      )}
-    </div>
+    <LinkButtonDropdown path={path} title={title}>
+      <LinkButton disable path={`/organisation_team/${name}/team_members`} title={"Team Members"} />
+      <LinkButton path={`/organisation_team/${name}/household_list`} title={"Household List"} />
+    </LinkButtonDropdown>
   );
 }
 
@@ -65,12 +36,7 @@ function CreateAndJoinTeamButton() {
       <div role="button" className="w-6 h-6 flex justify-center items-center rounded-full ">
         <Image src={icons.plus} alt="" />
       </div>
-      <Link
-        href={"/organisation_team/create_join_team"}
-        replace
-        role="button"
-        className="text-black  hover:text-primary-brand-400 font-bold flex-grow flex items-center active:scale-90"
-      >
+      <Link href={"/organisation_team/create_join_team"} role="button" className="text-black  hover:text-primary-brand-400 font-bold flex-grow flex items-center active:scale-90">
         Create/Join Team
       </Link>
       <div className="w-6 h-6 flex justify-center items-center">

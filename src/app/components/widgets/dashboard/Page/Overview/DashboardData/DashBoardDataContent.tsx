@@ -20,7 +20,7 @@ function DashBoardDataContent() {
         <DonutWidget data={carbonDonut} isTitle={dashboardSize > 640} />
         <BarChartWidget data={carbonCredit} isTitle={dashboardSize > 640} />
       </Block>
-      <Block ratio="70%">
+      <Block ratio="60%">
         <LineChartWidget data={carbonCreditLine} isTitle={dashboardSize > 640} />
         <EmissionList data={emissionFactor} isTitle={dashboardSize > 640} />
       </Block>
