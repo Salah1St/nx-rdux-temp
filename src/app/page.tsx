@@ -25,7 +25,7 @@ export default function Home() {
         />
         <div className="absolute top-0 right-0  w-full h-full flex z-20 font-Comfortaa">
           <div className="h-full flex-1 flex justify-center items-center">
-            <div className="w-[500px] h-[500px] text-white grid grid-rows-5 text-6xl">
+            <div className="w-[500px] h-[500px] text-white grid grid-rows-4 text-6xl">
               <div>Carbon</div>
               <div>Credit Bureau</div>
               <div>Thailand</div>
@@ -33,10 +33,11 @@ export default function Home() {
               <div className="w-full h-full flex justify-start items-center">
                 <button
                   role="button"
-                  className="border-4 border-primary-brand-400 rounded-3xl shadow-lg shadow-primary-brand-600 active:shadow-inner active:scale-95 active:text-primary-brand-400 px-16 py-8"
+                  style={{ backgroundImage: `url(${images.forest.default.src})` }}
+                  className=" rounded-3xl text-gradient font-black shadow-grow  drop-shadow-color hover:shadow-hover  active:shadow-inner active:scale-95 active:text-primary-brand-400 px-16 py-8"
                   onClick={handleJoinUs}
                 >
-                  Join Us
+                  {"Join Us"}
                 </button>
               </div>
             </div>

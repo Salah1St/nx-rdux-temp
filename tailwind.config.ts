@@ -96,10 +96,12 @@ const config: Config = {
       dropShadow: {
         primary: "4px 4px 8px rgba(38,63,42,0.85)",
         text: "1px 1px 1px rgba(0,0,0,0.85)",
-        color: "1px 1px 1px rgba(38,63,42,0.85)",
+        color: "1px 1px 1px rgba(141,181,143,0.8)",
       },
       boxShadow: {
         "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.5)",
+        hover: "0px 0px 4px 1px rgba(141,181,143,0.8)",
+        grow: "2px 2px 4px 1px rgba(141,181,143,0.8)",
       },
       animation: {
         heart: "heartPulse 2s ease-in-out 2",
