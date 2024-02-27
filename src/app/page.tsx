@@ -21,7 +21,7 @@ export default function Home() {
           sizes="100vw"
           width={1000}
           height={1000}
-          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-top"
+          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-center"
         />
         <div className="absolute top-0 right-0  w-full h-full flex z-20 font-Comfortaa">
           <div className="h-full flex-1 flex justify-center items-center">
@@ -54,7 +54,7 @@ export default function Home() {
           sizes="100vw"
           width={1000}
           height={1000}
-          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-top"
+          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-center"
         />
         <div className="absolute top-0 right-0  w-full h-full flex z-20 font-Comfortaa">
           <div className="h-full flex-1 flex flex-col justify-start px-16 py-32 gap-16">
@@ -92,7 +92,7 @@ export default function Home() {
           sizes="100vw"
           width={1000}
           height={1000}
-          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-top"
+          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-center"
         />
         <Image
           alt="mask"
@@ -101,7 +101,7 @@ export default function Home() {
           sizes="100vw"
           width={1000}
           height={1000}
-          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-top"
+          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-center"
         />
       </div>
       <div
@@ -116,7 +116,7 @@ export default function Home() {
           sizes="100vw"
           width={1000}
           height={1000}
-          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-top"
+          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-center"
         />
       </div>
       <div
@@ -130,7 +130,7 @@ export default function Home() {
           sizes="100vw"
           width={1000}
           height={1000}
-          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-top"
+          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-center"
         />
       </div>
       <div
@@ -144,7 +144,7 @@ export default function Home() {
           sizes="100vw"
           width={1000}
           height={1000}
-          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-top"
+          className="absolute top-0 right-0 z-10 w-full h-full  object-cover object-center"
         />
       </div>
       <div className="animate-fade-display  fixed top-0 left-0 z-50 w-screen h-screen  flex justify-center items-center bg-slate-900">

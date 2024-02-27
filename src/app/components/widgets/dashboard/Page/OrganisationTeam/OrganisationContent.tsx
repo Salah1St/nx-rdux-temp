@@ -1,7 +1,6 @@
 "use client";
-import React, { Suspense, useEffect, useRef } from "react";
+import React from "react";
 
-import { useDashboard } from "@/context/DashboardContext";
 import DashBoardDataContent from "../Overview/DashboardData/DashBoardDataContent";
 
 function OrganisationContent() {

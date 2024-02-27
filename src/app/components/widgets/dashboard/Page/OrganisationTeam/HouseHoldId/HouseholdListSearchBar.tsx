@@ -20,7 +20,7 @@ function HouseholdListSearchBar() {
         </button>
       </div>
       <div className="w-full flex-1 flex  justify-end items-center ">
-        <Link className="text-slate-400 font-semibold  flex  justify-end items-center  hover:scale-105 active:scale-95" href={"create_join_team/create_new_team"}>
+        <Link href={"#"} className="text-slate-400 font-semibold  flex  justify-end items-center  hover:scale-105 active:scale-95">
           <Image height={32} src={icons.plus} alt="" />
           Add Household
         </Link>
